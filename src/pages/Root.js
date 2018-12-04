@@ -53,7 +53,7 @@ const social = [
     link: "https://twitter.com/itssurajnegi"
   },
   {
-    name: "CV",
+    name: "CV(pdf)",
     link: `${process.env.PUBLIC_URL}/cv_surajnegi.pdf`
   }
 ];

@@ -1,37 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//import TOKEN from "../config.js";
+
 class Blog extends React.Component {
-  fetchItem() {
-    fetch(
-      "https://gist.githubusercontent.com/LazzyGuy/a741a1d285cf8799ecad3aa6007a37f8/raw/b72be9a4e9b2e29cbe426ee4bf37b7416fc3b85f/text.json",
-      {
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        }
+  state = {
+    blogId: this.props.blogId,
+    content: {},
+    contentRendered: false
+  };
+  componentWillMount() {
+    fetch("", {
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
       }
-    )
+    })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => this.makeContent(data));
+    console.log("working");
   }
-
-  ComponentDidMount() {
-    this.fetchItem();
+  makeContent(data) {
+    console.log(data);
   }
-
   render() {
-    return (
+    return this.state.contentRendered ? (
       <React.Fragment>
         <main>
           <Link to="/">home</Link>
           <br />
-          {this.props.blogId}
         </main>
       </React.Fragment>
+    ) : (
+      <div> Loading.. </div>
     );
   }
 }
-
 export default Blog;
