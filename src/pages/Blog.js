@@ -1,28 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-//import TOKEN from "../config.js";
+import { getbloguri } from "../bloglist.js";
+import showdown from "showdown";
 
 class Blog extends React.Component {
   state = {
     blogId: this.props.blogId,
-    content: {},
-    contentRendered: false
+    contentRendered: false,
+    content: ""
   };
-  componentWillMount() {
-    fetch("", {
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(data => this.makeContent(data));
-    console.log("working");
+
+  convertToHtml(text) {
+    const converter = new showdown.Converter();
+    const _content = converter.makeHtml(text);
+    this.setState({
+      content: _content,
+      contentRendered: true
+    });
   }
-  makeContent(data) {
-    console.log(data);
+
+  async componentWillMount() {
+    const url = getbloguri(this.props.blogId);
+    fetch(url)
+      .then(data => data.text())
+      .then(res => this.convertToHtml(res));
   }
   render() {
     return this.state.contentRendered ? (
@@ -30,6 +31,7 @@ class Blog extends React.Component {
         <main>
           <Link to="/">home</Link>
           <br />
+          <article dangerouslySetInnerHTML={{ __html: this.state.content }} />
         </main>
       </React.Fragment>
     ) : (

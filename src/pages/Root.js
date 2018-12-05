@@ -2,24 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Blog from "./Blog";
 import Home from "./Home";
-
-const blogList = [
-  {
-    id: 1,
-    title: "get justo sollicitudin",
-    date: "12-23-2018"
-  },
-  {
-    id: 2,
-    title: "Lorem ipsum dolor sit amet",
-    date: "12-23-2018"
-  },
-  {
-    id: 3,
-    title: "vehicula sodales. Phasellus loborti",
-    date: "12-23-2018"
-  }
-];
+import AllPost from "./AllPost";
+import { latestBlog } from "../bloglist.js";
 
 const projectList = [
   {
@@ -67,11 +51,11 @@ const blogContainer = ({ match }) => (
 
 export default class extends Component {
   getBlogData() {
-    return blogList.map(item => (
+    return latestBlog.map(item => (
       <li className="blog-list" key={item.id}>
-        <span className="blog-data">{item.date}</span>-
+        <span className="blog-data">{item.created}</span>-
         <Link to={`/blog/${item.id}`} className="blog-link">
-          {item.title}
+          {item.name}
         </Link>
       </li>
     ));
@@ -124,6 +108,7 @@ export default class extends Component {
               />
             )}
           />
+          <Route path="/allpost" component={AllPost} />
           <Route path="/blog/:blogId" component={blogContainer} />
         </div>
       </Router>

@@ -1,6 +1,6 @@
 import React from "react";
 import Blog from "./Blog";
-import { Route } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 
 export default class extends React.Component {
   render() {
@@ -28,7 +28,7 @@ export default class extends React.Component {
           </section>
           <section className="blog">
             <h1>Blog</h1>
-            <a href="lol">All posts</a>
+            <Link to="/allpost">All posts</Link>
             <br />
             <br />
 

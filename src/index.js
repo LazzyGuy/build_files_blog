@@ -7,4 +7,4 @@ import './styles/types'
 
 
 ReactDOM.render(<Root />, document.getElementById('root'));
-serviceWorker.unregister();
+serviceWorker.register();
