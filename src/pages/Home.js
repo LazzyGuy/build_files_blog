@@ -1,12 +1,13 @@
 import React from "react";
 import Blog from "./Blog";
 import { Link, Route } from "react-router-dom";
-
+import Bird from "../components/Birds";
 export default class extends React.Component {
   render() {
     return (
       <React.Fragment>
         <main>
+          <Bird />
           <section className="intro">
             <h1>Suraj Negi</h1>
             <p>
@@ -18,11 +19,15 @@ export default class extends React.Component {
               >
                 Acroknacks
               </a>{" "}
-              working on Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Pellentesque ultricies vehicula sodales. Phasellus lobortis
-              pellentesque ornare. Proin commodo tellus eget odio mollis, non
-              volutpat libero ultrices. In iaculis lectus eget justo
-              sollicitudin
+              working on several different projects, ranging from Web
+              Development to Image Processing. Alumni of{" "}
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://www.gehu.ac.in/"
+              >
+                graphic era hill university.
+              </a>
             </p>
             <ul>{this.props.social}</ul>
           </section>

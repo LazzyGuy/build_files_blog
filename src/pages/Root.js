@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Blog from "./Blog";
 import Home from "./Home";
 import AllPost from "./AllPost";
-import { latestBlog } from "../bloglist.js";
+import Error from "../components/Error";
 
 const projectList = [
   {
@@ -42,16 +42,11 @@ const social = [
   }
 ];
 
-const blogContainer = ({ match }) => (
-  <div>
-    {" "}
-    <Blog blogId={match.params.blogId} />{" "}
-  </div>
-);
+//const blogContainer = ({ match }) => <Blog blogId={match.params.blogId} />;
 
 export default class extends Component {
   getBlogData() {
-    return latestBlog.map(item => (
+    return window.latestBlog.map(item => (
       <li className="blog-list" key={item.id}>
         <span className="blog-data">{item.created}</span>-
         <Link to={`/blog/${item.id}`} className="blog-link">
@@ -96,7 +91,7 @@ export default class extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <Switch>
           <Route
             path="/"
             exact
@@ -108,9 +103,13 @@ export default class extends Component {
               />
             )}
           />
-          <Route path="/allpost" component={AllPost} />
-          <Route path="/blog/:blogId" component={blogContainer} />
-        </div>
+          <Route path="/(allpost|blog)/" exact component={() => <AllPost />} />
+          <Route
+            path="/blog/:blogId/"
+            component={({ match }) => <Blog blogId={match.params.blogId} />}
+          />
+          <Route component={() => <Error />} />
+        </Switch>
       </Router>
     );
   }
