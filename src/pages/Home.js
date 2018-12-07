@@ -11,7 +11,7 @@ export default class extends React.Component {
           <section className="intro">
             <h1>Suraj Negi</h1>
             <p>
-              Software Engineer at{" "}
+              Software Engineer intern at{" "}
               <a
                 href="http://www.acroknacks.com/"
                 rel="noopener noreferrer"
@@ -19,12 +19,10 @@ export default class extends React.Component {
               >
                 Acroknacks
               </a>{" "}
-              working on several different projects, ranging from Web
+              working on several projects, ranging from Web
               Development to Image Processing. Alumni of{" "}
               <a
-                rel="noopener noreferrer"
-                target="_blank"
-                href="https://www.gehu.ac.in/"
+e
               >
                 graphic era hill university.
               </a>
