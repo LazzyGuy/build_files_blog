@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Bird from "../components/Birds";
+
 class AllPost extends React.Component {
   getAllBlog() {
     return window.bloglist.map(item => {
