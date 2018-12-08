@@ -9,7 +9,7 @@ const Swag = () => {
       <Bird />
       <img
         src="https://pbs.twimg.com/profile_images/1049679826280468482/2zjLeoTw_400x400.jpg"
-        alt="me"
+        alt="yoyome"
       />
       <p>
         Hi, I am suraj I love exploring and making fun stuff.
