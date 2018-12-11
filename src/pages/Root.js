@@ -108,7 +108,6 @@ export default class extends Component {
             path="/blog/:blogId/"
             component={({ match }) => <Blog blogId={match.params.blogId} />}
           />
-          <Route component={() => <Error />} />
         </Switch>
       </Router>
     );
