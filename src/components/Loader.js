@@ -1,5 +1,5 @@
 import React from "react";
-import Bird from "./bird.gif";
+import Bird from "./lod.gif";
 const Loader = props => {
   return (
     <div className="loader">

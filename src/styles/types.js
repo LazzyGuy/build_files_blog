@@ -1,7 +1,7 @@
 import Typography from "typography";
 import kirkham from "typography-theme-kirkham"
-kirkham.baseFontSize = '18px';
-kirkham.baseLineHeight = 1.3;
+kirkham.baseFontSize = '20px';
+kirkham.baseLineHeight = 1.55;
 kirkham.bodyFontFamily = ['Josefin Sans', 'sans-serif'];
 const typography = new Typography(kirkham);
 
