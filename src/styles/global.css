@@ -27,8 +27,6 @@ div {
 pre{
   background: rgb(24, 24, 24);
   color: white;
-  border-radius: 5px;
-  padding: 90px;
 }
 
 main {
@@ -131,4 +129,9 @@ main {
 		margin: auto;
 		text-align: center;
 	}
+}
+
+footer{
+  font-size: 12px;
+  text-align: center;
 }

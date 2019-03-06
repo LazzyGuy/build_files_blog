@@ -1,5 +1,6 @@
 import React from "react";
 import bird from "./bird.gif";
+
 const hoverBirds = e => {
   let wy = document.documentElement.clientWidth,
     wx = document.documentElement.clientHeight;
@@ -13,6 +14,7 @@ const hoverBirds = e => {
   bird.style.top = `${x}px`;
   console.log(x, y, bird);
 };
+
 const Bird = () => (
   <img
     onMouseOver={hoverBirds}

@@ -3,7 +3,12 @@ import Blog from './Blog';
 import { Link, Route } from 'react-router-dom';
 import Bird from '../components/Birds';
 export default class extends React.Component {
+	componentDidMount() {
+		document.addEventListener('keydown', e => console.log(e.keyCode));
+	}
+
 	render() {
+    const d = new Date()
 		return (
 			<React.Fragment>
 				<main>
@@ -29,7 +34,7 @@ export default class extends React.Component {
 							</a>
 						</p>
 						<ul>{this.props.social}</ul>
-            <br/>
+						<br />
 						<h1>Motto</h1>
 						<blockquote>
 							<p>
@@ -38,7 +43,7 @@ export default class extends React.Component {
 							</p>
 							<cite>Aristotle</cite>
 						</blockquote>
-            <br/>
+						<br />
 					</section>
 					<section className="blog">
 						<h1>Blog</h1>
@@ -47,7 +52,7 @@ export default class extends React.Component {
 						<br />
 
 						<ul>{this.props.blog}</ul>
-            <br/>
+						<br />
 					</section>
 					<section className="projects">
 						<h1>Projects</h1>
@@ -56,6 +61,8 @@ export default class extends React.Component {
 					<hr />
 					<Route path="/blog/1/" component={Blog} />
 				</main>
+
+				<footer>Copyright &copy; {d.getFullYear()} Suraj Negi</footer>
 			</React.Fragment>
 		);
 	}
